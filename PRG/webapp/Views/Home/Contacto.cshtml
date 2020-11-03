@@ -1,0 +1,23 @@
+@model Contacto
+
+<h1>Formulario de contacto</h1>
+
+<div asp-validation-summary="All"></div>
+
+<form action="" method="post">
+    <div class="form-group">
+        <label asp-for="Nombre"></label>
+        <input asp-for="Nombre" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="Correo"></label>
+        <input asp-for="Correo" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="Mensaje"></label>
+        <textarea asp-for="Mensaje" class="form-control"></textarea>
+    </div>
+    <div class="form-group text-center">
+        <button class="btn btn-primary">Enviar</button>
+    </div>
+</form>
