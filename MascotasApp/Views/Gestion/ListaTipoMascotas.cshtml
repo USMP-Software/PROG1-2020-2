@@ -1,0 +1,11 @@
+@model List<TipoMascota>
+
+<h1>Lista de tipo de mascotas</h1>
+
+
+<ul class="list">
+@foreach (var tipo in Model)
+{
+    <li>@tipo.Nombre</li>
+}
+</ul>
