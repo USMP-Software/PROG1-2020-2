@@ -6,6 +6,7 @@ using MascotasApp.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,6 +27,11 @@ namespace MascotasApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                    .AddEntityFrameworkStores<MascotaContext>()
+                    .AddDefaultTokenProviders();
+
             services.AddDbContext<MascotaContext>(x => x.UseSqlServer("Server=.;Database=MascotaDB;Integrated Security=true;"));
         }
 
@@ -46,6 +52,8 @@ namespace MascotasApp
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

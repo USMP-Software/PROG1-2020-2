@@ -1,6 +1,7 @@
 using System.Linq;
 using MascotasApp.Data;
 using MascotasApp.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MascotasApp.Controllers
@@ -20,12 +21,14 @@ namespace MascotasApp.Controllers
             return View(lista);
         }
 
+        [Authorize]
         public IActionResult RegistrarTipoMascota()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult RegistrarTipoMascota(TipoMascota tm)
         {
             if (ModelState.IsValid) {

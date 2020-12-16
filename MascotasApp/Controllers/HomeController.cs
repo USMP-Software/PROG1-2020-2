@@ -20,6 +20,8 @@ namespace MascotasApp.Controllers
 
         public IActionResult Index()
         {
+            var x = User;
+            
             return View();
         }
 
