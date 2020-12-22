@@ -2,6 +2,9 @@
 
 <h1>Lista de tipo de mascotas</h1>
 
+<div class="alert alert-warning">
+    Cantidad de registros realizados: @ViewData["cantidad"]
+</div>
 
 <ul class="list">
 @foreach (var tipo in Model)
@@ -9,3 +12,4 @@
     <li>@tipo.Nombre</li>
 }
 </ul>
+

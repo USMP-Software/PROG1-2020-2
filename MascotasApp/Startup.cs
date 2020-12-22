@@ -28,6 +28,8 @@ namespace MascotasApp
         {
             services.AddControllersWithViews();
 
+            services.AddSession();
+
             services.AddIdentity<IdentityUser, IdentityRole>()
                     .AddEntityFrameworkStores<MascotaContext>()
                     .AddDefaultTokenProviders();
@@ -56,6 +58,8 @@ namespace MascotasApp
             app.UseAuthentication();
 
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
